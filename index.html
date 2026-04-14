@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daniel Campoverde Full Stack Engineer</title>
+<title>Daniel Campoverde — Full Stack Engineer</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -28,16 +28,14 @@
     font-weight: 300;
     line-height: 1.6;
     overflow-x: hidden;
-    
   }
 
-  
   /* Scrollbar */
   ::-webkit-scrollbar { width: 3px; }
   ::-webkit-scrollbar-track { background: var(--ink); }
   ::-webkit-scrollbar-thumb { background: var(--accent); }
 
-  /* Navigation */
+  /* ── Navigation ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0;
     z-index: 100;
@@ -49,7 +47,7 @@
   .nav-logo {
     font-family: 'Syne', sans-serif;
     font-size: 13px;
-    font-weight: bold; 
+    font-weight: bold;
     color: var(--accent);
     letter-spacing: 0.15em;
   }
@@ -79,7 +77,7 @@
   .nav-links a:hover { color: var(--accent); }
   .nav-links a:hover::after { transform: scaleX(1); }
 
-   /* ── Hamburger button (hidden on desktop) ── */
+  /* ── Hamburger button (hidden on desktop) ── */
   .nav-toggle {
     display: none;
     flex-direction: column;
@@ -142,6 +140,7 @@
     color: var(--accent);
     padding-left: 40px;
   }
+
   /* Hero */
   .hero {
     min-height: 100vh;
@@ -590,8 +589,6 @@
   /* Marquee */
   .marquee-wrap {
     overflow: hidden;
-    
-    
     padding: 14px 0;
     background: #060606;
   }
@@ -610,19 +607,12 @@
     white-space: nowrap;
     display: flex; align-items: center; gap: 60px;
   }
-  
   @keyframes marquee {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
   }
 
-  /* Hover line animation for experience items */
-  .exp-item .exp-role {
-    position: relative;
-    display: inline-block;
-  }
-  
-   /* ── 900px: switch to hamburger ── */
+  /* ── 900px: switch to hamburger ── */
   @media (max-width: 900px) {
     nav { padding: 20px 24px; }
     .nav-links { display: none; }
@@ -681,20 +671,20 @@
     .nav-dropdown ul li a { font-size: 12px; padding: 14px 24px; }
     .marquee-item { font-size: 9px; }
   }
-
 </style>
 </head>
 <body>
 
 <nav>
   <div class="nav-logo">Dev / Design</div>
+
+  <!-- Desktop links -->
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-</nav>
 
   <!-- Hamburger button -->
   <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
@@ -714,11 +704,10 @@
   </ul>
 </div>
 
-<!-- ── HERO ────────────────────────────────── -->
+<!-- ── HERO ── -->
 <section class="hero" id="home">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
-
   <div class="hero-left">
     <div class="hero-label">Full Stack Software Engineer</div>
     <h1>
@@ -734,11 +723,9 @@
       <a href="#experience" class="btn-outline">View work ↓</a>
     </div>
   </div>
-
- 
 </section>
 
-<!-- ── STATS ────────────────────────────────── -->
+<!-- ── STATS ── -->
 <div class="stats-strip" id="stats">
   <div class="stat-item">
     <div class="stat-num" data-target="6">0</div>
@@ -758,7 +745,7 @@
   </div>
 </div>
 
-<!-- ── MARQUEE ────────────────────────────────── -->
+<!-- ── MARQUEE ── -->
 <div class="marquee-wrap">
   <div class="marquee-track">
     <div class="marquee-item">Scalable Architecture</div>
@@ -779,15 +766,14 @@
   </div>
 </div>
 
-<!-- ── ABOUT ────────────────────────────────── -->
+<!-- ── ABOUT ── -->
 <section id="about">
-  
   <h2>Crafting systems<br>that <span style="color:var(--accent)">scale.</span></h2>
   <div class="about-grid">
     <div class="about-text">
       <p>
         Full Stack Engineer with <span class="highlight">6+ years</span> of experience building
-        <span class="accent-word">scalable, type safe systems</span> across fintech, real estate,
+        <span class="accent-word">scalable, type-safe systems</span> across fintech, real estate,
         and SaaS industries.
       </p>
       <p>
@@ -817,27 +803,26 @@
       </div>
       <div class="detail-item">
         <div class="detail-key">Specialties</div>
-        <div class="detail-val">Full Stack &nbsp AI Integration &nbsp System Architecture</div>
+        <div class="detail-val">Full Stack &nbsp; AI Integration &nbsp; System Architecture</div>
       </div>
       <div class="detail-item">
         <div class="detail-key">Industries</div>
-        <div class="detail-val">Fintech &nbsp Real Estate &nbsp SaaS</div>
+        <div class="detail-val">Fintech &nbsp; Real Estate &nbsp; SaaS</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── EXPERIENCE ────────────────────────────────── -->
+<!-- ── EXPERIENCE ── -->
 <section id="experience" style="background:#050504; padding:100px 48px;">
   <div class="section-label">Experience</div>
-  
-  <h2>Where I’ve<br>made an impact.</h2>
+  <h2>Where I've<br>made an impact.</h2>
   <div class="exp-grid">
 
     <div class="exp-item">
       <div>
         <div class="exp-company">Fintech Platform</div>
-        <div class="exp-location">Remote Global</div>
+        <div class="exp-location">Remote · Global</div>
       </div>
       <div>
         <div class="exp-role">Senior Full Stack Engineer</div>
@@ -861,7 +846,6 @@
 
     <div class="exp-item">
       <div>
-        
         <div class="exp-company">Real Estate SaaS</div>
         <div class="exp-location">Remote · Americas</div>
       </div>
@@ -885,14 +869,13 @@
 
     <div class="exp-item">
       <div>
-        
         <div class="exp-company">SaaS Startup</div>
         <div class="exp-location">Guayaquil, Ecuador</div>
       </div>
       <div>
         <div class="exp-role">Frontend Engineer</div>
         <div class="exp-desc">
-          Delivered a React based B2B analytics dashboard achieving sub-2s load times via code splitting,
+          Delivered a React-based B2B analytics dashboard achieving sub-2s load times via code splitting,
           lazy loading, and smart data fetching. Collaborated closely with design and backend teams
           in agile sprints to ship weekly releases. Introduced automated testing coverage from 0 to 80%.
         </div>
@@ -909,7 +892,7 @@
   </div>
 </section>
 
-<!-- ── SKILLS ────────────────────────────────── -->
+<!-- ── SKILLS ── -->
 <section id="skills" class="skills-section">
   <h2>Technology<br>toolkit.</h2>
   <div class="skills-wrapper">
@@ -940,7 +923,7 @@
     <div class="skill-group">
       <div class="skill-group-name">Infrastructure & AI</div>
       <ul class="skill-list">
-        <li>AWS </li>
+        <li>AWS</li>
         <li>Docker / Kubernetes</li>
         <li>CI/CD (GitHub Actions)</li>
         <li>Agentic AI Workflows</li>
@@ -952,7 +935,7 @@
   </div>
 </section>
 
-<!-- ── CONTACT ────────────────────────────────── -->
+<!-- ── CONTACT ── -->
 <section id="contact" class="contact-section">
   <h2>Let's build<br>something great.</h2>
   <p class="contact-subtitle">
@@ -967,7 +950,7 @@
 </section>
 
 <footer>
-  <div class="footer-logo">Daniel Campoverde </div>
+  <div class="footer-logo">Daniel Campoverde</div>
   <div class="footer-note">GUAYAQUIL, ECUADOR — GLOBAL REMOTE</div>
 </footer>
 
@@ -992,6 +975,7 @@
       document.body.style.overflow = '';
     });
   });
+
   // ── Scroll reveal ──
   const revealObs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('revealed'); });
@@ -1041,10 +1025,10 @@
   const nav = document.querySelector('nav');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 60) {
-      nav.style.padding = '14px 48px';
+      nav.style.padding = window.innerWidth <= 900 ? '12px 24px' : '14px 48px';
       nav.style.background = 'rgba(10,10,10,0.97)';
     } else {
-      nav.style.padding = '24px 48px';
+      nav.style.padding = '';
       nav.style.background = '';
     }
   });
