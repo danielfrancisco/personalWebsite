@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daniel Campoverde — Full Stack Engineer</title>
+<title>Daniel Campoverde Full Stack Engineer</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -79,6 +79,69 @@
   .nav-links a:hover { color: var(--accent); }
   .nav-links a:hover::after { transform: scaleX(1); }
 
+   /* ── Hamburger button (hidden on desktop) ── */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 40px; height: 40px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 18px; height: 1.5px;
+    background: var(--cream);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: center;
+  }
+  .nav-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .nav-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  /* ── Mobile dropdown menu ── */
+  .nav-dropdown {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 99;
+    padding-top: 80px;
+    background: rgba(10,10,10,0.98);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    transform: translateY(-100%);
+    transition: transform 0.35s cubic-bezier(0.16,1,0.3,1);
+  }
+  .nav-dropdown.open {
+    transform: translateY(0);
+  }
+  .nav-dropdown ul {
+    list-style: none;
+    padding: 24px 0 32px;
+  }
+  .nav-dropdown ul li a {
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--cream2);
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.2s, padding-left 0.2s;
+  }
+  .nav-dropdown ul li:last-child a { border-bottom: none; }
+  .nav-dropdown ul li a:hover {
+    color: var(--accent);
+    padding-left: 40px;
+  }
   /* Hero */
   .hero {
     min-height: 100vh;
@@ -558,10 +621,15 @@
     position: relative;
     display: inline-block;
   }
-
+  
+   /* ── 900px: switch to hamburger ── */
   @media (max-width: 900px) {
     nav { padding: 20px 24px; }
-    .hero { grid-template-columns: 1fr; padding: 120px 24px 60px; margin-left: 0px;}
+    .nav-links { display: none; }
+    .nav-toggle { display: flex; }
+    .nav-dropdown { display: block; }
+
+    .hero { grid-template-columns: 1fr; padding: 120px 24px 60px; margin-left: 0; }
     .terminal { display: none; }
     .stats-strip { grid-template-columns: repeat(2,1fr); padding: 32px 24px; }
     .stat-item { padding: 20px; border-right: none; border-bottom: 1px solid var(--border); }
@@ -569,9 +637,51 @@
     .about-grid { grid-template-columns: 1fr; gap: 48px; }
     .skills-wrapper { grid-template-columns: 1fr; }
     .exp-item { grid-template-columns: 1fr; gap: 16px; }
-    .nav-links { gap: 20px; }
     footer { flex-direction: column; gap: 12px; text-align: center; }
   }
+
+  /* ── 500px: tighten everything further ── */
+  @media (max-width: 500px) {
+    nav { padding: 16px 18px; }
+    .nav-logo { font-size: 11px; }
+
+    .hero { padding: 100px 18px 48px; }
+    h1 { font-size: clamp(38px, 11vw, 52px); }
+    .hero-desc { font-size: 13px; }
+    .btn-primary, .btn-outline { padding: 12px 22px; font-size: 11px; }
+
+    .stats-strip { grid-template-columns: 1fr 1fr; padding: 24px 18px; gap: 0; }
+    .stat-item { padding: 16px; }
+    .stat-num { font-size: 36px; }
+    .stat-label { font-size: 9px; }
+
+    section { padding: 52px 18px; }
+
+    h2 { font-size: clamp(28px, 9vw, 40px); margin-bottom: 40px; }
+
+    .exp-item { padding: 24px 18px; gap: 12px; }
+    .exp-role { font-size: 18px; }
+    .exp-desc { font-size: 13px; }
+    .tag { font-size: 9px; padding: 4px 10px; }
+
+    .skill-group { padding: 28px 18px; }
+
+    .about-grid { gap: 32px; }
+    .about-text { font-size: 14px; }
+    .detail-item { grid-template-columns: 90px 1fr; gap: 12px; }
+
+    .contact-section { padding: 72px 18px; }
+    .contact-links { gap: 10px; }
+    .contact-link { padding: 12px 18px; font-size: 11px; }
+    .contact-subtitle { font-size: 14px; margin-bottom: 36px; }
+
+    footer { padding: 24px 18px; }
+    .footer-note { font-size: 9px; letter-spacing: 0.06em; }
+
+    .nav-dropdown ul li a { font-size: 12px; padding: 14px 24px; }
+    .marquee-item { font-size: 9px; }
+  }
+
 </style>
 </head>
 <body>
@@ -585,6 +695,24 @@
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
+
+  <!-- Hamburger button -->
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- Mobile dropdown -->
+<div class="nav-dropdown" id="navDropdown">
+  <ul>
+    <li><a href="#about" class="nav-dropdown-link">About</a></li>
+    <li><a href="#experience" class="nav-dropdown-link">Experience</a></li>
+    <li><a href="#skills" class="nav-dropdown-link">Skills</a></li>
+    <li><a href="#contact" class="nav-dropdown-link">Contact</a></li>
+  </ul>
+</div>
 
 <!-- ── HERO ────────────────────────────────── -->
 <section class="hero" id="home">
@@ -659,7 +787,7 @@
     <div class="about-text">
       <p>
         Full Stack Engineer with <span class="highlight">6+ years</span> of experience building
-        <span class="accent-word">scalable, type-safe systems</span> across fintech, real estate,
+        <span class="accent-word">scalable, type safe systems</span> across fintech, real estate,
         and SaaS industries.
       </p>
       <p>
@@ -709,7 +837,7 @@
     <div class="exp-item">
       <div>
         <div class="exp-company">Fintech Platform</div>
-        <div class="exp-location">Remote · Global</div>
+        <div class="exp-location">Remote Global</div>
       </div>
       <div>
         <div class="exp-role">Senior Full Stack Engineer</div>
@@ -764,7 +892,7 @@
       <div>
         <div class="exp-role">Frontend Engineer</div>
         <div class="exp-desc">
-          Delivered a React-based B2B analytics dashboard achieving sub-2s load times via code splitting,
+          Delivered a React based B2B analytics dashboard achieving sub-2s load times via code splitting,
           lazy loading, and smart data fetching. Collaborated closely with design and backend teams
           in agile sprints to ship weekly releases. Introduced automated testing coverage from 0 to 80%.
         </div>
@@ -844,6 +972,26 @@
 </footer>
 
 <script>
+  // ── Hamburger toggle ──
+  const toggle = document.getElementById('navToggle');
+  const dropdown = document.getElementById('navDropdown');
+
+  toggle.addEventListener('click', () => {
+    const isOpen = dropdown.classList.toggle('open');
+    toggle.classList.toggle('open', isOpen);
+    toggle.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  // Close dropdown when a link is clicked
+  document.querySelectorAll('.nav-dropdown-link').forEach(link => {
+    link.addEventListener('click', () => {
+      dropdown.classList.remove('open');
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
   // ── Scroll reveal ──
   const revealObs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('revealed'); });
